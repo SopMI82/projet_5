@@ -1,2 +1,2 @@
 # projet_5
- Ajout d'un carousel sur le site de Prin-it
+ Ajout d'un carrousel sur le site de Print-it
