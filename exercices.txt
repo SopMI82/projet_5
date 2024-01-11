@@ -1,0 +1,18 @@
+Algorithme déplacement
+Variable
+    déplacement ← 0
+    score ← 0
+Début
+    Déplacement en haut
+    Déplacement en haut
+    Déplacement à droite
+    Déplacement à gauche
+    Déplacement en bas
+    Déplacement en bas
+Fin
+
+fonction ma0 case depart
+	depart = score 0
+
+fonction double passage
+
