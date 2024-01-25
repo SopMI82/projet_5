@@ -41,17 +41,30 @@ console.log(arrowRight); // vérifier
 let divDots = document.querySelector(".dots")
 console.log(divDots);
 
-//les bullet points :
-const dot = document.querySelectorAll('dot')
-console.log(dot);
-//donne une liste vide à ce niveau car l'objet n'est pas encore créé
+//récupération des données depuis le tableau :
+slides.forEach((slide) => {
+	banner.insertAdjacentHTML('beforeEnd',
+		`<div class="slide">
+		<img class="banner-img" src="./assets/images/slideshow/${slide.image}"
+		alt="Banner Print-it">
+		<p>${slide.tagLine}</p>
+		</div>` )
+	//maintenant toutes mes slides sont positionnées les unes sur les autres, avec un décallage.
+	//je vais essayer de masquer les slides par défaut dans le code HTML inséré plus tot, pour les afficher uniquement au clic.
+	// finalement, j'ai mis une opacité à 0 dans le code html, je vais la modifier ici pour la slide active
+	//selection de la div slide active :
+})
+
+
+
 
 //le contenu de chaque slide :
 let slideContent = document.querySelectorAll('.slide')
 console.log(slideContent);
 //donne une liste vide à ce niveau car l'objet n'est pas encore créé
 
-//image à actualiser :
+
+/* //image à actualiser :
 const bannerImg = document.querySelector(".banner-img")
 console.log(bannerImg)
 //pas utile si <img> générée par le JS ?
@@ -59,7 +72,7 @@ console.log(bannerImg)
 // paragraphe à modifier :
 const bannerTxt = document.querySelector("p");
 console.log(bannerTxt)
-//pas utile si <p></p> généré par le JS
+//pas utile si <p></p> généré par le JS */
 
 //Initialisation du compteur :
 let index = 0
@@ -75,8 +88,20 @@ console.log(imageSource); */
 //créer les dots, grace à une boucle :
 for(let i=0; i<slides.length; i++) {
 	divDots.insertAdjacentHTML('afterbegin',`<div class="dot"></div>`)
-	//ajouter le dot qui vient d'être crée au tableau, pour l'item[i]
+	//ajouter le dot qui vient d'être crée au tableau, pour l'item[i] ?
 }
+
+//selectionner les bullet points :
+const dot = document.querySelectorAll('.dot')
+console.log(dot);
+//donne une liste vide à ce niveau car l'objet n'est pas encore créé
+
+//indiquer un index 0 pour le premier bullet point :
+dot[0].classList.add('dot_selected')
+
+//indiquer un index 0 pour la première div contenu :
+slideContent[0].classList.add('slide_selected')
+
 
 // écouter le clic sur la flèche gauche :
 arrowLeft.addEventListener ("click", (left) => {
@@ -103,35 +128,22 @@ arrowRight.addEventListener ("click", (right) => {
 		index = index + 1
 	}
 	console.log(index); // vérifier
+
 	
 })
 
-//gestion de l'implémentation du contenu à positionner en dehors ?
-
-
-//récupération des données depuis le tableau :
-slides.forEach((slide) => {
-	banner.insertAdjacentHTML('afterbegin', 
-		`<div class="slide">
-		<img class="banner-img" src="./assets/images/slideshow/${slide.image}"
-		alt="Banner Print-it"> <br>
-		<p>${slide.tagLine}</p>
-		</div>` )
-	})
-
-//maintenant toutes mes slides sont positionnées les unes sur les autres, avec un leger décallage.
-//je vais essayer de masquer les slides par défaut dans le code HTML inséré plus tot, pour les afficher uniquement au clic.
 
 
 
+
+
+
+//Brouillons :
 
 	/* const img = `<img class="banner-img" src="./assets/images/slideshow/${slide.image}" alt="Banner Print-it">`
 	const tag = `<p>${slide.tagLine}</p>` */
 /* 	console.log(img); // vérifier
 	console.log(tag); // vérifier */
-
-
-
 
 //insertion des images et des paragraphes dans le code HTML :
 //banner.insertAdjacentHTML("afterbegin", img);

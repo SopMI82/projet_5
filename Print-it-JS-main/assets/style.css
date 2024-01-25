@@ -130,6 +130,22 @@ header {
 #banner .arrow_right {
 	right: 10px;
 }
+
+/* Gestion du contenu des slides : */
+.slide {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+.slide_selected {
+	opacity: 1;
+}
+
+
 /* Gestion des points du carrousel */
 .dots {
 	position: absolute;
