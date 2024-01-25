@@ -62,12 +62,11 @@ let index = 0
 //créer les dots, grace à une boucle :
 for(let i=0; i<slides.length; i++) {
 divDots.insertAdjacentHTML('afterBegin',`<div class="dot"></div>`)
-})
+}
 
 //selectionner les bullet points :
 const dot = document.querySelectorAll('.dot')
 console.log(dot);
-
 
 //Initialiser contenu et dots :
 
@@ -78,22 +77,6 @@ dot[0].classList.add('dot_selected')
 slideContent[0].classList.add('slide_selected')
 
 //Créer les evenements :
-
-//créer les dots, grace à une boucle :
-  for(let i=0; i<slides.length; i++) {
-	divDots.insertAdjacentHTML('afterBegin',`<div class="dot"></div>`)
-
-//selectionner les bullet points :
-const dot = document.querySelectorAll('.dot')
-console.log(dot);
-//donne une liste vide à ce niveau car l'objet n'est pas encore créé
-
-//indiquer un index 0 pour le premier bullet point :
-dot[0].classList.add('dot_selected')
-
-//indiquer un index 0 pour la première div contenu :
-slideContent[0].classList.add('slide_selected')
-
 
 // écouter le clic sur la flèche gauche :
 arrowLeft.addEventListener ("click", (left) => {
@@ -122,8 +105,7 @@ arrowRight.addEventListener ("click", (right) => {
 	} else {
 		index = index + 1
 	}
-
 	console.log(index); // vérifier	
 	dot[index].classList.add('dot_selected')
 	slideContent[index].classList.add('slide_selected')
-})
+  })
