@@ -21,7 +21,7 @@ const slides = [
 
 // SELECTION & STOCKAGE des éléments :
 
-//nombre de slides dans mon tableau :
+//nombre de slides dans mon tableau (= nombre de bullet points) :
 const nbrSlides = slides.length
 console.log(nbrSlides); // vérifier
 
@@ -37,15 +37,28 @@ console.log(arrowLeft); // vérifier
 let arrowRight = document.querySelector(".arrow_right")
 console.log(arrowRight); // vérifier
 
-//image à actualiser :
-const imgCarousel = document.querySelector(".banner-img")
-console.log(imgCarousel)
-//pas utile si <img> générée par le JS
+//la div qui doit contenir les bullet points :
+let divDots = document.querySelector(".dots")
+console.log(divDots);
 
+//les bullet points :
+const dot = document.querySelectorAll('dot')
+console.log(dot);
+//donne une liste vide à ce niveau car l'objet n'est pas encore créé
+
+//le contenu de chaque slide :
+let slideContent = document.querySelectorAll('.slide')
+console.log(slideContent);
+//donne une liste vide à ce niveau car l'objet n'est pas encore créé
+
+//image à actualiser :
+const bannerImg = document.querySelector(".banner-img")
+console.log(bannerImg)
+//pas utile si <img> générée par le JS ?
 
 // paragraphe à modifier :
-const tagLine = document.querySelector("p");
-console.log(tagLine)
+const bannerTxt = document.querySelector("p");
+console.log(bannerTxt)
 //pas utile si <p></p> généré par le JS
 
 //Initialisation du compteur :
@@ -59,11 +72,14 @@ console.log(imageSource); */
 
 // SOUMETTRE les éléments à une action :
 
-
-/* Gestion des evenements sur les Flèches */
+//créer les dots, grace à une boucle :
+for(let i=0; i<slides.length; i++) {
+	divDots.insertAdjacentHTML('afterbegin',`<div class="dot"></div>`)
+	//ajouter le dot qui vient d'être crée au tableau, pour l'item[i]
+}
 
 // écouter le clic sur la flèche gauche :
-arrowLeft.addEventListener ("click", () => {
+arrowLeft.addEventListener ("click", (left) => {
 	console.log("click left OK"); // vérifier
 	// action à effectuer au clic, avec une condition pour faire boucler les slides :
 	if (index<1) {
@@ -74,11 +90,11 @@ arrowLeft.addEventListener ("click", () => {
 	console.log(index); // vérifier
 
 //j'avais pensé incorporer le lien de l'image ainsi, mais ça ne fonctionne pas :
-/* 	imgCarousel.setAttribute('src', imgSource) */ 
+/* 	bannerImg.setAttribute('src', imgSource) */ 
 })
 
 // écouter le clic sur la flèche gauche :
-arrowRight.addEventListener ("click", () => {
+arrowRight.addEventListener ("click", (right) => {
 	console.log("click right OK"); // vérifier
 // action à effectuer au clic, avec une condition pour faire boucler les slides :
 	if (index > (slides.length-2)) {
@@ -95,19 +111,36 @@ arrowRight.addEventListener ("click", () => {
 
 //récupération des données depuis le tableau :
 slides.forEach((slide) => {
-	const img = `<img class="banner-img" src="./assets/images/slideshow/${slide.image}" alt="Banner Print-it">`
-	const tag = `<p>${slide.tagLine}</p>`
-	console.log(img); // vérifier
-	console.log(tag); // vérifier
+	banner.insertAdjacentHTML('afterbegin', 
+		`<div class="slide">
+		<img class="banner-img" src="./assets/images/slideshow/${slide.image}"
+		alt="Banner Print-it"> <br>
+		<p>${slide.tagLine}</p>
+		</div>` )
+	})
+
+//maintenant toutes mes slides sont positionnées les unes sur les autres, avec un leger décallage.
+//je vais essayer de masquer les slides par défaut dans le code HTML inséré plus tot, pour les afficher uniquement au clic.
+
+
+
+
+	/* const img = `<img class="banner-img" src="./assets/images/slideshow/${slide.image}" alt="Banner Print-it">`
+	const tag = `<p>${slide.tagLine}</p>` */
+/* 	console.log(img); // vérifier
+	console.log(tag); // vérifier */
+
+
+
 
 //insertion des images et des paragraphes dans le code HTML :
-banner.insertAdjacentHTML("afterbegin", img);
-banner.insertAdjacentHTML("afterbegin", tag);
+//banner.insertAdjacentHTML("afterbegin", img);
+//banner.insertAdjacentHTML("afterbegin", tag);
 
 //je cherche comment masquer les images et paragraphes qui ne correspondent pas au nuléro de l'index en leur ajoutant la propriété css display none
-if (slide != index) {
-		imgCarousel.style.display = 'none'
+/* if (slide != index) {
+		bannerImg.style.display = 'none'
 	}
-})
+}) */
 
 //le mieux serait surement d'afficher uniquement l'image et le paragraphes de la slide correspondant à l'index
