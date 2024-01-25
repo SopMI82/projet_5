@@ -49,6 +49,7 @@ slides.forEach((slide) => {
 		<img class="banner-img" src="./assets/images/slideshow/${slide.image}"
 		alt="Banner Print-it">
 		<p>${slide.tagLine}</p>
+		</div>`)
 })
 
 //le contenu de chaque slide :
@@ -60,9 +61,9 @@ let index = 0
 
 //créer les dots, grace à une boucle :
 for(let i=0; i<slides.length; i++) {
-	divDots.insertAdjacentHTML('afterBegin',`<div class="dot"></div>`)
-	//ajouter le dot qui vient d'être crée au tableau, pour l'item[i] ?
+divDots.insertAdjacentHTML('afterBegin',`<div class="dot"></div>`)
 })
+
 //selectionner les bullet points :
 const dot = document.querySelectorAll('.dot')
 console.log(dot);
