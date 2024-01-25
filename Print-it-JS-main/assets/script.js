@@ -87,7 +87,11 @@ console.log(imageSource); */
 
 //créer les dots, grace à une boucle :
 for(let i=0; i<slides.length; i++) {
+<<<<<<< Updated upstream
 	divDots.insertAdjacentHTML('afterbegin',`<div class="dot"></div>`)
+=======
+	divDots.insertAdjacentHTML('afterBegin',`<div class="dot"></div>`)
+>>>>>>> Stashed changes
 	//ajouter le dot qui vient d'être crée au tableau, pour l'item[i] ?
 }
 
