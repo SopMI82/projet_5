@@ -131,8 +131,6 @@ header {
 #banner .arrow_right {
 	right: 10px;
 }
-<<<<<<< Updated upstream
-=======
 
 /* Gestion du contenu des slides : */
 .slide {
@@ -159,7 +157,6 @@ header {
 }
 
 
->>>>>>> Stashed changes
 /* Gestion des points du carrousel */
 .dots {
 	position: absolute;
