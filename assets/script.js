@@ -107,8 +107,6 @@ arrows.forEach(arrow => {
 			case 'arrow_right':
 				augIndex()
 				break;
-			default:
-				break;
 		}
 		addClass()
 	})
