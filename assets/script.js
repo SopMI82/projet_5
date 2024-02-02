@@ -107,12 +107,14 @@ addClass()
  * Ecouteur d'évenement qui gère l'affichage du carousel
  */
 arrows.forEach(arrow=>{
-	arrow.addEventListener('click', event=>{
+	arrow.addEventListener('click', (event)=>{
 		removeClass()
 		if (EventTarget = arrowLeft) {
 			decIndex()
+			console.log("gauche")
 		} else {
 			augIndex()
+			console.log("droite")
 		}
 		addClass()
 	})
@@ -120,7 +122,7 @@ arrows.forEach(arrow=>{
 /* 
 tout le reste fonctionne, mais il reste un problème dans l'expression if/else,
 le compteur tourne toujours dans le meme sens (decrementation)
-testé avec =, ==, ===, rien n'y fait
+testé avec =, ==, ===, rien n'y fait, si, le sens change, mais pour les 2 flèches
  */
 
 
