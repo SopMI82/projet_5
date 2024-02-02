@@ -25,8 +25,6 @@ let index = 0
 const nbrSlides = slides.length
 const banner = document.getElementById("banner");
 const arrows = document.querySelectorAll(".arrow");
-const arrowLeft = document.querySelector(".arrow_left");
-const arrowRight = document.querySelector(".arrow_right");
 const divDots = document.querySelector(".dots");
 
 
@@ -35,11 +33,7 @@ console.log(index);
 console.log(nbrSlides);
 console.log(banner);
 console.log(arrows);
-console.log(arrowLeft);
-console.log(arrowRight);
 console.log(divDots);
-/* console.log(slideContent);
-console.log(dot); */
 
 
 /**
@@ -103,26 +97,19 @@ function augIndex() {
 
 addClass()
 
-/**
- * Ecouteur d'évenement qui gère l'affichage du carousel
- */
-arrows.forEach(arrow=>{
-	arrow.addEventListener('click', (event)=>{
+arrows.forEach(arrow => {
+	arrow.addEventListener('click', event => {
 		removeClass()
-		if (EventTarget = arrowLeft) {
-			decIndex()
-			console.log("gauche")
-		} else {
-			augIndex()
-			console.log("droite")
+		switch (event.target.classList[1]) {
+			case 'arrow_left':
+				decIndex()
+				break;
+			case 'arrow_right':
+				augIndex()
+				break;
+			default:
+				break;
 		}
 		addClass()
 	})
 })
-/* 
-tout le reste fonctionne, mais il reste un problème dans l'expression if/else,
-le compteur tourne toujours dans le meme sens (decrementation)
-testé avec =, ==, ===, rien n'y fait, si, le sens change, mais pour les 2 flèches
- */
-
-
