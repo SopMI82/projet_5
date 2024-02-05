@@ -1,5 +1,4 @@
 /* Données fournies (tableau contenu du carousel) */
-
 const slides = [
 	{
 		image: "slide1.jpg",
@@ -20,21 +19,11 @@ const slides = [
 ]
 
 /** VARIABLES */
-
 let index = 0
 const nbrSlides = slides.length
 const banner = document.getElementById("banner");
 const arrows = document.querySelectorAll(".arrow");
 const divDots = document.querySelector(".dots");
-
-
-//verif
-console.log(index);
-console.log(nbrSlides);
-console.log(banner);
-console.log(arrows);
-console.log(divDots);
-
 
 /**
  * Création d'une slide pour chaque élément du tableau
@@ -94,9 +83,14 @@ function augIndex() {
 		index = index + 1
 	}
 }
-
+/**
+ * Initialisation du carousel 
+ */
 addClass()
 
+/**
+ * Fonction qui gère le carousel
+ */
 arrows.forEach(arrow => {
 	arrow.addEventListener('click', event => {
 		removeClass()
